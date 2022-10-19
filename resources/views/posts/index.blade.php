@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,6 +11,7 @@
     </head>
     <body>
         <h1>釣果情報</h1>
+        <p class='create'>[<a href='/posts/create'>create</a>]</p>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -23,3 +27,4 @@
         </div>
     </body>
 </html>
+@endsection
