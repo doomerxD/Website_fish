@@ -11,5 +11,10 @@ class Image extends Model
     {
         return $this->belongsTo('App\Post');
     }
+    
+    protected $fillable = [
+        'name',
+        'path',
+    ];
 }
     

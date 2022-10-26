@@ -9,20 +9,22 @@
     </head>
     <body>
         <h1>釣果情報</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="title">
-                <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル"/>
+                <h2>題名</h2>
+                <input type="text" name="post[title]" placeholder="題名を入力してください"/>
             </div>
             <div class="body">
-                <h2>Body</h2>
+                <h2>釣果情報</h2>
                 <textarea name="post[body]" placeholder="釣果情報を入力してください"></textarea>
             </div>
             <div class="tool">
                 <h2>使用した道具</h2>
                 <textarea name="post[tool]" placeholder="使用した道具を入力してください。"></textarea>
             </div>
+            <input  type="file" name="image"> 
+
             <input type="submit" value="投稿"/>
         </form>
         <div class="back">[<a href="/">back</a>]</div>

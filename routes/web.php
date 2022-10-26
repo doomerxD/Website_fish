@@ -7,7 +7,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/posts', 'PostController@store');
     Route::get('/posts/create', 'PostController@create');
     Route::get('/posts/{post}', 'PostController@show');
-    Route::post('/posts/{post}', 'PostController@update');
+    Route::post('/posts/create', 'PostController@upload');
     Route::delete('/posts/{post}', 'PostController@delete');
     Route::get('/posts/{post}/edit', 'PostController@edit');
 });
