@@ -24,17 +24,17 @@
         </div>
         <div id="map" style="height:500px">
         </div>
-        {!! Form::open(['route' => 'result.currentLocation','method' => 'get']) !!}
-        {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
-        {!! Form::hidden('lng','lng',['class'=>'lng_input']) !!}
-        {!! Form::submit("周辺を表示", ['class' => "btn btn-success btn-block",'disabled']) !!}
-        {!! Form::close() !!}
+            <script>
+                const lat = {{ $lat }};
+                const lng = {{ $lng }};
+            </script>
         
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/setLocation.js') }}"></script>
-        <script src="{{ asset('/js/result.js') }}"></script>
+        <script src="{{ asset('/js/currentLocation.js') }}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.googlemap.token')}}&callback=initMap" async defer>
         </script>
+        
         <div class="footer">
             <a href="/">戻る</a>
         </div>
