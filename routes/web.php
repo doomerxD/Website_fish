@@ -10,6 +10,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/posts/create', 'PostController@upload');
     Route::delete('/posts/{post}', 'PostController@delete');
     Route::get('/posts/{post}/edit', 'PostController@edit');
+    
+    Route::get('/posts/result', 'ResultController@currentLocation')->name('result.currentLocation');
 });
 
 Auth::routes();
