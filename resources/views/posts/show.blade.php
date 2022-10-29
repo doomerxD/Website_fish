@@ -30,17 +30,24 @@
         {!! Form::submit("周辺を表示", ['class' => "btn btn-success btn-block",'disabled']) !!}
         {!! Form::close() !!}
         
+        <input type="text" id="addressInput">
+        <button id="searchGeo">緯度経度変換</button>
+        <div>
+            緯度：<input type="text" id="lat">
+            経度：<input type="text" id="lng">
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/setLocation.js') }}"></script>
         <script src="{{ asset('/js/result.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.googlemap.token')}}&callback=initMap" async defer>
+        <script src="{{ asset('/js/getLatLng.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.googlemap.token')}}&callback=initMap" defer>
         </script>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
         @foreach($post->images as $image)
         <img src="{{ $image->image_url }}"/>
         @endforeach
         @endsection
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
     </body>
 </html>
