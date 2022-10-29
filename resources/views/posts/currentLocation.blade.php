@@ -35,12 +35,12 @@
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.googlemap.token')}}&callback=initMap" async defer>
         </script>
         
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
         @foreach($post->images as $image)
         <img src="{{ $image->image_url }}"/>
         @endforeach
         @endsection
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
     </body>
 </html>
