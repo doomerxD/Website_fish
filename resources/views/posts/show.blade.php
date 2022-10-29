@@ -24,7 +24,7 @@
         </div>
         <div id="map" style="height:500px">
         </div>
-        {!! Form::open(['route' => 'result.currentLocation','method' => 'get']) !!}
+        {!! Form::open(['route' => ['result.currentLocation',$post->id],'method' => 'get']) !!}
         {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
         {!! Form::hidden('lng','lng',['class'=>'lng_input']) !!}
         {!! Form::submit("周辺を表示", ['class' => "btn btn-success btn-block",'disabled']) !!}
