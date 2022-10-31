@@ -46,6 +46,7 @@
         <img src="{{ $image->image_url }}"/>
         @endforeach
         @endsection
+        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">投稿内容を編集する</a>]</p>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

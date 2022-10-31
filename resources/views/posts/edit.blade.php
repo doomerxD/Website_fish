@@ -5,7 +5,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>釣果情報</title>
     </head>
     <body>
         <h1 class="title">編集画面</h1>
@@ -20,6 +20,10 @@
                 <div class='content__body'>
                     <h2>本文</h2>
                     <input type='text' name='post[body]' value="{{ $post->body }}">
+                </div>
+                <div class='tool__body'>
+                    <h2>使用した道具</h2>
+                    <input type='text' name='post[tool]' value="{{ $post->tool }}">
                 </div>
                 <input type="submit" value="保存">
             </form>
