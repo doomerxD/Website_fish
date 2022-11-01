@@ -47,6 +47,22 @@
         @endforeach
         @endsection
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">投稿内容を編集する</a>]</p>
+        
+        <form action="/posts/{{ $post->id }}" id="form_delete" method="post">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+            <input type="submit" style="display:none">
+            <p class='delete'>[<span onclick="return deletePost(this);">delete</span>]</p>
+            
+        </form>
+        <script>
+        function deletePost(e){
+            'use strict';
+            if (confirm('削除すると復元出来ません。\n本当に削除しますか？')){
+                document.getElementById('form_delete').submit();
+            }
+        }
+        </script>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
