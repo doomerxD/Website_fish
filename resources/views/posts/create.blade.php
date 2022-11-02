@@ -19,11 +19,11 @@
                 <h2>釣果情報</h2>
                 <textarea name="post[body]" placeholder="釣果情報を入力してください"></textarea>
             </div>
+            <input  type="file" name="image"> 
             <div class="tool">
                 <h2>使用した道具</h2>
                 <textarea name="post[tool]" placeholder="使用した道具を入力してください。"></textarea>
             </div>
-            <input  type="file" name="image"> 
             <div class="adress">
                 <h2>住所</h2>
                 <textarea name="post[address]" placeholder="釣った場所を入力してください。" id="addressInput"></textarea>
@@ -31,8 +31,8 @@
             <input type="hidden" id="lat" name='post[lat]'>
             <input type="hidden" id="lng" name='post[lng]'>
         </form>
+        <button id="searchGeo">投稿</button>
         <div class="back">[<a href="/">back</a>]</div>
-        <button id="searchGeo">緯度経度変換</button>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/setLocation.js') }}"></script>
         <script src="{{ asset('/js/result.js') }}"></script>

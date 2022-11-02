@@ -18,8 +18,14 @@
         </h1>
         <div class="content">
             <div class="content__post">
-                <h3>本文</h3>
+                <h3>釣果情報</h3>
                 <p>{{ $post->body }}</p>    
+            </div>
+        </div>
+        <div class="tool">
+            <div class="tool__post">
+                <h3>使用した道具</h3>
+                <p>{{ $post->tool }}</p>    
             </div>
         </div>
         <div id="map" style="height:500px">
