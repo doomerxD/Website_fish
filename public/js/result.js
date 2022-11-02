@@ -1,6 +1,9 @@
 function initMap() {
     map = document.getElementById("map");
-    let tokyoTower = {lat: 35.6585769, lng: 139.7454506};
+    const lat = $('#lat').data();
+    const lng = $('#lng').data();
+    console.log(lat);
+    let tokyoTower = {lat: Number(lat.name), lng: Number(lng.name)};
     opt = {
         zoom: 13, 
         center: tokyoTower, 

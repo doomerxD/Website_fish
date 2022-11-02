@@ -14,7 +14,10 @@ class Post extends Model
         'title',
         'body',
         'tool',
-        'user_id'
+        'user_id',
+        'address',
+        'lat',
+        'lng'
     ];
     
     public function user()
