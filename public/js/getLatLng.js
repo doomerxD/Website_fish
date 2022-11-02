@@ -1,7 +1,6 @@
 function getLatLng() {
     var addressInput = document.getElementById('addressInput').value;
     var geocoder = new google.maps.Geocoder();
-    alert('alert');
     geocoder.geocode(
         {
             address: addressInput
@@ -23,7 +22,7 @@ function getLatLng() {
 
                         $('#lat').val(lat);
                         $('#lng').val(lng);
-                        
+                        document.getElementById('place').submit();
                         break;
                     }
                 }
@@ -42,4 +41,6 @@ function getLatLng() {
             }
         });
 }
-$('#searchGeo').on('click', getLatLng);
+$('#searchGeo').on('click',() => {
+    getLatLng();
+});

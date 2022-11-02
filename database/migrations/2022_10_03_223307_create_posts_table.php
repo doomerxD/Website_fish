@@ -18,6 +18,9 @@ class CreatePostsTable extends Migration
             $table->string('title',20);
             $table->string('body',200);
             $table->string('tool', 50);
+            $table->string('address',30);
+            $table->string('lat',30);
+            $table->string('lng',30);
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
