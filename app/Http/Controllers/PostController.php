@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Image;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
@@ -31,7 +32,7 @@ class PostController extends Controller
         return view('posts/edit')->with(['post' => $post]);
     }
     
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
@@ -39,7 +40,7 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 
-    public function store(Request $request, Post $post, Image $image)
+    public function store(PostRequest $request, Post $post, Image $image)
     {   
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $input = $request['post'];

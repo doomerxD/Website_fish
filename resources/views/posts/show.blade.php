@@ -78,5 +78,9 @@
                 @csrf
                 <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
             </form>
+        </div>
+        <div class="row justify-content-center">
+            <p>いいね数：{{ $post->users()->count() }}</p>
+        </div>
     </body>
 </html>

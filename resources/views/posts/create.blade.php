@@ -13,20 +13,24 @@
             @csrf
             <div class="title">
                 <h2>題名</h2>
-                <input type="text" name="post[title]" placeholder="題名を入力してください"/>
+                <input type="text" name="post[title]" placeholder="題名を入力してください" value="{{ old('post.title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div class="body">
                 <h2>釣果情報</h2>
-                <textarea name="post[body]" placeholder="釣果情報を入力してください"></textarea>
+                <textarea name="post[body]" placeholder="釣果情報を入力してください">{{ old('post.body') }}</textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <input  type="file" name="image"> 
             <div class="tool">
                 <h2>使用した道具</h2>
-                <textarea name="post[tool]" placeholder="使用した道具を入力してください。"></textarea>
+                <textarea name="post[tool]" placeholder="使用した道具を入力してください。">{{ old('post.tool') }}</textarea>
+                <p class="tool__error" style="color:red">{{ $errors->first('post.tool') }}</p>
             </div>
-            <div class="adress">
+            <div class="address">
                 <h2>住所</h2>
-                <textarea name="post[address]" placeholder="釣った場所を入力してください。" id="addressInput"></textarea>
+                <textarea name="post[address]" placeholder="釣った場所を入力してください。" id="addressInput">{{ old('post.address') }}</textarea>
+                <p class="address__error" style="color:red">{{ $errors->first('post.address') }}</p>
             </div>
             <input type="hidden" id="lat" name='post[lat]'>
             <input type="hidden" id="lng" name='post[lng]'>
