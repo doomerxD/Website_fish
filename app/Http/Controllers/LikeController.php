@@ -12,7 +12,7 @@ class LikeController extends Controller
     {
         $post->users()->attach(Auth::id());
 
-        return redirect()->route('posts/index');
+        return redirect()->route('posts.index');
     }
 
 
@@ -21,7 +21,7 @@ class LikeController extends Controller
     {
         $post->users()->detach(Auth::id());
 
-        return redirect()->route('posts/index');
+        return redirect()->route('posts.index');
     }
 }
 

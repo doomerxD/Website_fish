@@ -25,20 +25,6 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-        <div class="card-body">
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <form action="">
-                        <input type="submit" value="&#xf164;いいね" class="fas btn btn-success">
-                    </form>
-                </div>
-                <div class="col-md-3">
-                    <form action="">
-                        <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
-                    </form>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
 @endsection
