@@ -4,24 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Like;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 { 
-    public function store(Post $post)
+    public function store(Post $post,Like $like)
     {
-        $post->users()->attach(Auth::id());
+        $like->post_id = $post->id;
+        $like->user_id = Auth::id();
+        $like->save();
 
-        return redirect()->route('posts.index');
+
+        return redirect("/posts/".$post->id);
     }
 
 
 
     public function destroy(Post $post)
     {
-        $post->users()->detach(Auth::id());
+        $post->likes()->where('user_id', Auth::id())->delete();
 
-        return redirect()->route('posts.index');
+        return redirect("/posts/".$post->id);
     }
 }
 

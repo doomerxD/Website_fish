@@ -30,9 +30,9 @@ class Post extends Model
         return $this->hasMany('App\Comment');  
     }
     
-    public function users()
+    public function likes()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->hasMany('App\Like');
     }
     
     public function images()   

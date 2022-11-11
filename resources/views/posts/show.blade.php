@@ -7,7 +7,7 @@
         <title>Posts</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
         @extends('layouts.app')　
@@ -67,20 +67,23 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
-        <div class="col-md-3"> 
-            <form action="{{ route('likes', $post) }}" method="POST">
-                @csrf
-                <input type="submit" value="&#xf164;いいね" class="fas btn btn-success">
-            </form>
-        </div>
-        <div class="col-md-3">
-            <form action="{{ route('unlikes', $post) }}" method="POST">
-                @csrf
-                <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
-            </form>
-        </div>
+        @if($post->likes()->where('user_id', Auth::id())->exists())
+            <div class="col-md-3">
+                <form action="{{ route('unlikes', $post) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
+                </form>
+            </div>
+        @else
+            <div class="col-md-3"> 
+                <form action="{{ route('likes', $post) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="&#xf164;いいね" class="fas btn btn-success">
+                </form>
+            </div>
+        @endif
         <div class="row justify-content-center">
-            <p>いいね数：{{ $post->users()->count() }}</p>
+            <p>いいね数：{{ $post->likes()->count() }}</p>
         </div>
     </body>
 </html>

@@ -18,7 +18,7 @@ class PostController extends Controller
     }
     
     public function show(Post $post, Image $image)
-    {
+    { 
         return view('posts/show')->with(['post' => $post]);
     }
     
