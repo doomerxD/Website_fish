@@ -36,7 +36,7 @@
             </form>
         </div>
         <button id="searchGeo">投稿</button>
-        <div class="back">[<a href="/">back</a>]</div>
+        <div class="back">[<a href="/">戻る</a>]</div>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/setLocation.js') }}"></script>
         <script src="{{ asset('/js/result.js') }}"></script>
