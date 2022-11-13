@@ -26,23 +26,6 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-        <div class="card-body">
-            <h5 class="card-title">タイトル：{{ $post->title }}</h5>
-            <p class="card-text">内容：{{ $post->body }}</p>
-            <p class="card-text">投稿者：{{ $post->user->name }}</p>
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <form action="">
-                        <input type="submit" value="&#xf164;いいね" class="fas btn btn-success">
-                    </form>
-                </div>
-                <div class="col-md-3">
-                    <form action="">
-                        <input type="submit" value="&#xf164;いいね取り消す" class="fas btn btn-danger">
-                    </form>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
 @endsection
