@@ -22,7 +22,6 @@
                     <h2>釣果情報</h2>
                     <input type='text' name='post[body]' value="{{ $post->body }}">
                 </div>
-                <input  type="file" name="post[image]" value="{{$post->image}}"> 
                 <div class='tool__body'>
                     <h2>使用した道具</h2>
                     <input type='text' name='post[tool]' value="{{ $post->tool }}">

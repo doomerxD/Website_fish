@@ -18,11 +18,25 @@
         </h1>
         <div class="content">
             <div class="content__post">
-                <h3>本文</h3>
+                <h2>釣果情報</h2>
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
-        <div id="map" style="height:500px;width:1000px;">
+        <div class="tool">
+            <div class="tool__post">
+                <h2>使用した道具</h2>
+                <p>{{ $post->tool }}</p>    
+            </div>
+        </div>
+        
+        <div class="image">
+            <h2>釣った魚の写真</h2>
+            @foreach($post->images as $image)
+            <img src="{{ $image->image_url }}"/>
+            @endforeach
+        </div>
+        <h2>現在地</h2>
+        <div id="map" style="height:500px">
         </div>
             <script>
                 const lat = {{ $lat }};
@@ -34,13 +48,9 @@
         <script src="{{ asset('/js/currentLocation.js') }}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{config('services.googlemap.token')}}&callback=initMap" async defer>
         </script>
-        
-        @foreach($post->images as $image)
-        <img src="{{ $image->image_url }}"/>
-        @endforeach
         @endsection
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/posts/{{ $post->id }}">戻る</a>
         </div>
     </body>
 </html>
