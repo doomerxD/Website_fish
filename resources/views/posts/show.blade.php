@@ -55,7 +55,7 @@
             @endforeach
         </div>
         <h2>釣った場所</h2>
-        <div id="map" style="height:600px;width:700px;">
+        <div id="map" style="height:600px;">
         </div>
         {!! Form::open(['route' => ['result.currentLocation',$post->id],'method' => 'get']) !!}
         {!! Form::hidden('lat','lat',['class'=>'lat_input']) !!}
