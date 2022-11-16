@@ -11,7 +11,7 @@
     <body>
         <h1 class="title">編集画面</h1>
         <div class="content">
-            <form action="/posts/{{ $post->id }}" method="POST"　enctype="multipart/form-data"id=place>
+            <form action="/posts/{{ $post->id }}/{{$post->images[0]->id}}" method="POST" enctype="multipart/form-data"id=place>
                 @csrf
                 @method('PUT')
                 <div class='content__title'>
@@ -22,13 +22,17 @@
                     <h2>釣果情報</h2>
                     <input type='text' name='post[body]' value="{{ $post->body }}">
                 </div>
+                <div class="content__image">
+                    <h2>釣った魚の写真</h2>
+                    <input type="file" name='image'> 
+                </div>
                 <div class='tool__body'>
                     <h2>使用した道具</h2>
                     <input type='text' name='post[tool]' value="{{ $post->tool }}">
                 </div>
                 <div class="address__body">
                     <h2>住所</h2>
-                    <textarea name="post[address]" id="addressInput"></textarea>
+                    <textarea name="post[address]"id="addressInput"></textarea>
                 </div>
                 <input type="hidden" id="lat" name='post[lat]'>
                 <input type="hidden" id="lng" name='post[lng]'>

@@ -32,10 +32,14 @@ class PostController extends Controller
         return view('posts/edit')->with(['post' => $post]);
     }
     
-    public function update(PostRequest $request, Post $post)
-    {
+    public function update(PostRequest $request, Post $post,Image $image)
+    {   
         $input_post = $request['post'];
         $post->fill($input_post)->save();
+        
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $image->image_url = $image_url;
+        $image->save();
 
         return redirect('/posts/' . $post->id);
     }
@@ -53,7 +57,7 @@ class PostController extends Controller
     }
     
     public function upload(Request $request)
-    {
+    {  
         $dir = 'sample';
         $file_name = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('public/' . $dir, $file_name);
