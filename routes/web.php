@@ -11,7 +11,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/{post}/result', 'ResultController@currentLocation')->name('result.currentLocation');
     Route::get('/posts/{post}', 'PostController@show');
     Route::get('/posts/{post}/edit', 'PostController@edit');
-    Route::put('/posts/{post}', 'PostController@update');
+    Route::put('/posts/{post}/{image}', 'PostController@update');
     Route::post('/posts/create', 'PostController@upload');
     Route::delete('/posts/{post}', 'PostController@delete');
     
